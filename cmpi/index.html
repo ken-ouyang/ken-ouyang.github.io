@@ -6,7 +6,7 @@
         content="Real-Time Neural Character Rendering with Pose-Guided Multiplane Images">
   <meta name="keywords" content="MPI,RNCR">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Real-Time Neural Character Rendering with Pose-Guided Multiplane Images</title>
+  <title>Nerfies: Deformable Neural Radiance Fields</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -83,7 +83,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2011.12948"
+                <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -93,7 +93,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                <a href="https://www.youtube.com/watch?v=otL3UAak7wQ"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -227,13 +227,32 @@
       </div>
     </div>
     <!--/ Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            We aim to render an animatable character that can be controlled by a driving
+            input. To this end, we devise a portable data capture setup to ease the multi-
+            view capture in open scenes. Once we finish the data capture for
+             the moving character, we train a neural network conditioned on character poses
+             to predict the multiplane images that explain the multi-view observations. 
+             During inference, we can render realistic characters given a driving
+             input.
+          </p>
+        </div>
+        <div>
+          <img src="./static/images/method.png" alt="method" class="center">
+        </div>
+      </div>
+    </div>
 
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/watch?v=VlDSJtmBqBs"
+          <iframe src="https://www.youtube.com/embed/otL3UAak7wQ?rel=0&amp;showinfo=0"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
