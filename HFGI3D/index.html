@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="High-fidelity 3D GAN Inversion by Pseudo-multi-view Optimization">
+  <meta name="keywords" content="GAN,GAN inversion,Neural Radiance Fields">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>High-fidelity 3D GAN Inversion by Pseudo-multi-view Optimization</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script> 
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">High-fidelity 3D GAN Inversion  </h1>
+          <h1 class="title is-1 publication-title">by Pseudo-multi-view Optimization</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jiaxinxie97.github.io/Jiaxin-Xie/">Jiaxin Xie</a><sup>1</sup> <sup>*</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://ken-ouyang.github.io/">Hao Ouyang</a><sup>1</sup> <sup>*</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://chenyanglei.github.io/">Chenyang Lei</a><sup>1</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="">Jingtan Piao</a><sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://cqf.io/">Qifeng Chen</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> The Hong Kong University of Science and Technology</span>
+            <span class="author-block"><sup>2</sup>Sensetime</span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>*</sup>Denotes Joint First Author</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=otL3UAak7wQ"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop height="100%">
+        <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-fullbody">
+          <img src="./static/videos_s/input01.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video01.mp4"
+                    type="video/mp4">
+          </video>
+          <img src="./static/videos_s/input02.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video02.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-steve">
+          <img src="./static/videos_s/input03.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video03.mp4"
+                    type="video/mp4">
+          </video>
+          <img src="./static/videos_s/input04.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video04.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <img src="./static/videos_s/input06.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video06.mp4"
+                    type="video/mp4">
+          </video>
+          <img src="./static/videos_s/input05.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video05.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/videos_s/input07.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video07.mp4"
+                    type="video/mp4">
+          </video>
+          <img src="./static/videos_s/input08.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video08.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <img src="./static/videos_s/input09.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video09.mp4"
+                    type="video/mp4">
+          </video>
+          <img src="./static/videos_s/input10.png" alt="method" class="center">
+          <video poster="" id="steve" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/input_video10.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <!-- <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop height="100%">
+            <source src="./static/videos/scene_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop height="100%">
+            <source src="./static/videos/scene_0_1.mp4""
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop height="100%">
+            <source src="./static/videos/scene_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <!-- <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+               We present a high-fidelity 3D generative adversarial network (GAN) inversion framework that can synthesize photo-realistic novel views while preserving specific details of the input image. High-fidelity 3D GAN inversion is inherently  challenging due to the geometry-texture trade-off in high-fidelity 3D inversion, where overfitting to a single view input image often damages the estimated geometry during the latent optimization. To solve this challenge, we propose a novel pipeline that builds on the pseudo-multi-view estimation with visibility analysis. We keep the original textures for the visible parts and utilize generative priors for the occluded parts. Extensive experiments show that our approach achieves advantageous reconstruction and novel view synthesis quality over state-of-the-art methods, even for images with out-of-distribution textures. The proposed pipeline also enables image attribute editing with the inverted latent code and 3D-aware texture modification. Our approach enables high-fidelity 3D rendering from a single image, which is promising for various applications of AI-generated 3D content. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Pipeline</h2>
+        <div class="content has-text-justified">
+          <p>
+            We divide the pseudo-multi-view estimation into two steps. Given a novel view, the synthesized image is expected to contain some parts visible from the input image. As only a single input view is provided, certain parts are occluded in the novel view. For the visible parts, we can directly warp the original textures from the input image. For the occluded parts,  the pretrained generator G is able to synthesize various photo-realistic 3D consistent images, which can be utilized to inpaint the occluded areas.
+          </p>
+        </div>
+        <div>
+          <img src="./static/images/method.png" alt="method" class="center">
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/otL3UAak7wQ?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">3D-aware attributes or texture editing</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <img src="./static/videos_s/edit_image01.png" alt="method" class="center">
+          <img src="./static/videos_s/edit_image02.png" alt="method" class="center">
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_1.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="chair-tp" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_5.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_3.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="shiba" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_7.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_2.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_6.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-st">
+          <video poster="" id="fullbody" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_4.mp4"
+                    type="video/mp4">
+          </video>
+          <video poster="" id="fullbody" autoplay controls muted loop height="100%">
+            <source src="./static/videos_s/editing_8.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The website code is borrowed from the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of Nerfies. We thank the authors for sharing the templates.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
