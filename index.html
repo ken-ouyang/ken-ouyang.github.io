@@ -22,9 +22,9 @@
                 <name>Hao Ouyang (欧阳豪) </name>  <br> <br>
               </p>
               <p style="font-family:verdana"> I am now a  Ph.D. student at the Hong Kong University of Science and Technology (HKUST), supervised by <a href="https://cqf.io">Dr. Qifeng Chen</a>.
-                Prior to this, I got my Bachelor's degree at CUHK in 2018, advised by <a href="https://jiaya.me/"> Prof. Jiaya Jia </a>. I got my MPhil  degree from HKUST in 2020, advised by Dr. Qifeng Chen. 
-                I am now a research intern at MSRA in vision group. I was a research intern at SenseTime   from 2016-2017, working with <a href="http://yan-qiong.com/"> Dr. Qiong Yan </a>. 
-                I was also a research intern in Tencet Youtu-X Lab in 2017, working with Prof. Jiaya Jia. <br>
+                Prior to this, I got my Bachelor's degree at CUHK in 2018, advised by <a href="https://jiaya.me/"> Prof. Jiaya Jia </a>. I got my MPhil  degree from HKUST in 2020, advised by Dr. Qifeng Chen. I'm currently going to Google Starline Projects for an internship.  
+                I was a research intern at MSRA working with Dr. Bo Zhang on 3D vision. I was a research intern at SenseTime working with <a href="http://yan-qiong.com/"> Dr. Qiong Yan </a> on low-level vision for mobile devices. 
+                I was also a research intern in Tencet Youtu-X Lab working with Prof. Jiaya Jia on human pose estimation. <br>
  
               </p>
  
@@ -45,6 +45,40 @@
         <heading>Publications</heading>
         <p> (* indicates joint first authors) </p>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+         <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <div class="one">
+                <div class="two" id='inpainting_cvpr21_image'>
+                  <img src='images/hiding_iccv19.jpg' width="160"></div>
+                <img src='images/hiding_iccv19.jpg' width="160">
+              </div>
+              <script type="text/javascript">
+                function inpainting_cvpr21_start() {
+                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
+                }
+
+                function inpainting_cvpr21_stop() {
+                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
+                }
+                inpainting_cvpr21_stop()
+              </script>
+            </td>
+            <td style="padding:20px;width:75%;vertical-align:middle">
+              <papertitle> CoDeF: Content Deformation Fields for Temporally Consistent Video Processing </papertitle>
+              </a>
+              <br>
+               <strong> Hao Ouyang*  </strong>, Qiuyu Wang*, Yuxi Xiao*, Qingyan Bai, Juntao Zhang, Kecheng Zheng, Xiaowei Zhou, Qifeng Chen&dagger, Yujun Shen&dagger
+              <br>
+              <em>preprint </em>, 2023  
+              <br>
+              <a href="https://arxiv.org/abs/2308.07926">arxiv</a> / 
+              <a href="https://qiuyu96.github.io/CoDeF/">project website</a> / 
+              <a href="https://github.com/qiuyu96/CoDeF">code</a>
+              <p></p>
+             
+            </td>
+           </t>
 
           <tr onmouseout="RNCR_stop()" onmouseover="RNCR_start()">
             <td style="padding:20px;width:25%;vertical-align:middle">
@@ -68,9 +102,9 @@
                 <papertitle>High-fidelity 3D GAN Inversion by Pseudo-multi-view Optimization</papertitle>
               </a>
               <br>
-                  Jiaxin Xie, Hao OUYANG, Jingtan Piao, Chenyang Lei, Qifeng Chen
+                  Jiaxin Xie*, Hao OUYANG*, Jingtan Piao, Chenyang Lei, Qifeng Chen
               <br>
-                 Arxiv   
+                 CVPR 2023   
               <br>
               <a href="https://arxiv.org/abs/2211.15662">arxiv</a> / 
               <a href="https://ken-ouyang.github.io/HFGI3D/index.html">project website</a> / 
@@ -378,6 +412,7 @@
                 inpainting_cvpr21_stop()
               </script>
             </td>
+            
             <td style="padding:20px;width:75%;vertical-align:middle">
                 <papertitle> Human pose estimation with spatial contextual information </papertitle>
               </a>
