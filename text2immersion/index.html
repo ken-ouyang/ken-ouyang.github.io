@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Text2Immersion</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/video_comparison.js"></script>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> </h1>
+          <h1 class="title is-1 publication-title"><i>Text2Immersion: Generative Immersive Scene with 3D Gaussians</i></h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ken-ouyang.github.io/">Hao Ouyang</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="http://kevinkingo.com/">Tiancheng Sun</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://stephenlombardi.github.io/">Stephen Lombardi</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://kathrynheal.com/">Kathryn Heal</a><sup>1</sup>,
+            </span>
+          </div>          
+           <div class="is-size-5 publication-authors">
+            		    <span class="author-block"><sup>1</sup>Google Project Starline</span>&ensp;
+            <span class="author-block"><sup>2</sup>HKUST</span>&ensp;
+          </div>
+		
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+		       </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+<!-- Begin teaser video. -->
+<!-- Translation. -->
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Outdoor scene generation</h2>
+</div>
+
+<h2 class="subtitle has-text-centered">
+  <span class="dnerf">Text prompt: "Autumn park", "Cabin in the wood", "Cabin in the wood".
+</h2>
+
+  <!-- Begin gallery. -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+	 <!-- Begin gallery-1. -->
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/autumn.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/wood_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/wood_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Indoor scene generation</h2>
+</div>
+
+<h2 class="subtitle has-text-centered">
+  <span class="dnerf">Text prompt: "A cozy living room", "A cozy living room", "Japanese style room".
+</h2>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+	 <!-- Begin gallery-1. -->
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/living_room_1.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/living_room_2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/japanese_style.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="columns is-centered has-text-centered">
+  <h2 class="title is-3">Stylized scene generation</h2>
+</div>
+
+<h2 class="subtitle has-text-centered">
+  <span class="dnerf">Text prompt: "Watercolor night street", "Future night city", "Heaven".
+</h2>
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <br/>
+      </div>
+    </div>
+	 <!-- Begin gallery-1. -->
+    <div class="container">
+      <div id="results-carousel1" class="carousel results-carousel">
+        <div class="item g11">
+          <video poster="" id="g11" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/watercolor_night_street.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g12">
+          <video poster="" id="g12" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/city.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item g13">
+          <video poster="" id="g13" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/heaven.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End gallery. -->
+
+<!-- Begin abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <img src='static/images/framework.png' id="framework"><br><br>
+        <div class="content has-text-justified">
+          <p>
+We introduce Text2Immersion, an elegant method for producing high-quality 3D immersive scenes from text prompts. Our proposed pipeline initiates by progressively generating a Gaussian cloud using pre-trained 2D diffusion and depth estimation models. This is followed by a refining stage on the Gaussian cloud, interpolating and refining it to enhance the details of the generated scene. Distinct from prevalent methods that focus on single object or indoor scenes, or employ zoom-out trajectories, our approach generates diverse scenes with various objects, even extending to the creation of imaginary scenes. Consequently, Text2Immersion can have wide-ranging implications for various applications such as virtual reality, game development, and automated content creation. Extensive evaluations demonstrate that our system surpasses other methods in rendering quality and diversity, further progressing towards text-driven 3D scene generation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<br><br>
+<!-- End abstract -->
+
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{ouyang2023text,
+  author    = {Ouyang, Hao and Sun, Tiancheng and Lombardi, Stephen and Heal, Kathryn},
+  title     = {Text2Immersion: Generative Immersive Scene with 3D Gaussians},
+  journal   = {Arxiv},
+  year      = {2023},
+}</code></pre>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="content has-text-centered">
+        <div class="content">
+          <p>
+            This website was modified from <a
+            href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We appreciate for sharing this perfect template!
+          </p>
+        </div>
+    </div>
+  </div>
+</footer>
+<script>
+bulmaCarousel.attach('#results-carousel1', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel2', {
+    slidesToScroll: 1,
+    slidesToShow: 2,
+    infinite: true,
+    autoplay: false,
+});
+bulmaCarousel.attach('#results-carousel3', {
+    slidesToScroll: 1,
+    slidesToShow: 1,
+    infinite: true,
+    autoplay: false,
+});
+</script>
+
+</body>
+</html>
+ 
