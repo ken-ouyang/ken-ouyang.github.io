@@ -1,591 +1,634 @@
-<!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Hi, Jon Here. Please DELETE the two <script> tags below if you use this HTML, otherwise my analytics will track your page -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
- 
-  <title> Hao Ouyang  </title>
-  
-  <meta name="author" content="Jon Barron">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hao Ouyang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2c3e50;
+      --accent-color: #3498db;
+      --background-color: #f0f4f8;
+      --white: #ffffff;
+    }
+    
+    /* Global Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--primary-color);
+      line-height: 1.6;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Personal Introduction Section */
+    .intro {
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+      color: var(--white);
+      border-radius: 8px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .intro img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-right: 20px;
+    }
+    
+    .intro-content {
+      flex: 1;
+      min-width: 250px;
+      text-align: left;
+    }
+    
+    .intro-content h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    .intro-content p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    
+    /* Intro links (Email / Google Scholar / Github) */
+    .intro-links {
+      margin-top: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .intro-links a {
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-right: 8px;
+      transition: background 0.3s ease;
+    }
+    
+    .intro-links a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Publications Section */
+    .publications {
+      margin-bottom: 40px;
+    }
+    
+    .publications h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    /* Publication toggle buttons */
+    .pub-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .pub-buttons button {
+      background: transparent;
+      color: var(--accent-color);
+      border: 2px solid var(--accent-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .pub-buttons button:hover {
+      background: var(--accent-color);
+      color: #fff;
+    }
+    
+    .pub-buttons button.active {
+      background: var(--accent-color);
+      color: #fff;
+    }
+    
+    .paper-list {
+      /* Container for publication items */
+    }
+    
+    .publication-item {
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    
+    .publication-item:hover {
+      transform: translateY(-5px);
+    }
+    
+    .publication-item img {
+      width: 150px;
+      height: auto;
+      border-radius: 4px;
+      margin-right: 20px;
+    }
+    
+    /* Publication details: titles use default text color */
+    .publication-details h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .publication-details p {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+    
+    /* Affiliations Section */
+    .affiliations {
+      margin-bottom: 40px;
+    }
+    
+    .affiliations h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    
+    .affiliations-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    
+    .affiliations-logos img {
+      width: 225px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0.8;
+    }
+    
+    .affiliations-logos img:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .star {
+      color: #f39c12;
+    } 
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .intro, .publication-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .intro img, .publication-item img {
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <name>Hao Ouyang (欧阳豪) </name>  <br> <br>
-              </p>
-              <p style="font-family:verdana"> I am now a  Ph.D. student at the Hong Kong University of Science and Technology (HKUST), supervised by <a href="https://cqf.io">Dr. Qifeng Chen</a>.
-                Prior to this, I got my Bachelor's degree at CUHK, advised by <a href="https://jiaya.me/"> Prof. Jiaya Jia </a>. I have internship in Google Research, Microsoft Research Asia, Ant Research, Tencent Youtu and Sensetime. My current research interest is image and video generation and editing. <br>
-              </p>
- 
- 
-              <p style="text-align:center">
-                <a href="mailto:ououkenneth@gmail.com"> Email</a> &nbsp/&nbsp
-                <a href="https://github.com/ken-ouyang"> Github</a> &nbsp/&nbsp 
-                <a href="https://scholar.google.com/citations?user=HupEGRYAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-             <img style="width:100%;max-width:100%" alt="profile photo" src="images/image.png" class="hoverZoomLink"></a>
-            </td>
-          </tr>
-        </tbody></table>
+  <div class="container">
+    <!-- Personal Introduction Section -->
+    <section class="intro">
+      <img src="images_new/hao.JPG" alt="Profile Photo">
+      <div class="intro-content">
+        <h1>Hao Ouyang (欧阳豪)</h1>
+        <p>
+          I am a passionate researcher specializing in Generative AI, with a focus on advancing image and video editing. I completed my PhD at HKUST under the inspiring supervision of Prof. Qifeng Chen and had the honor of collaborating with Prof. Jiaya Jia on my final-year project during my Bachelor’s at CUHK. My journey has also taken me through internships at Google Research, Microsoft Research Asia, Ant Research, Tencent, and Sensetime. Currently, I work as a research scientist at Ant Group. I welcome opportunities for collaboration—please feel free to reach out.
+        </p>
+        <div class="intro-links">
+          <a href="ououkenneth@gmail.com">Email</a>
+          <a href="https://scholar.google.co.uk/citations?user=HupEGRYAAAAJ&hl=en">Google Scholar</a>
+          <a href="https://github.com/ken-ouyang">Github</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Publications Section -->
+    <section class="publications">
+      <h2>Publications</h2>
+      <div class="pub-buttons">
+        <button id="btnSelected" class="active">Selected</button>
+        <button id="btnFull">Full</button>
+      </div>
+      
+      <!-- Selected Publications (visible by default) -->
+      <div id="selectedPapers" class="paper-list">
+        <div class="publication-item">
+          <img src="images_new/MagicQuill.gif" alt="Publication 1">
+          <div class="publication-details">
+            <h3>MagicQuill: An Intelligent Interactive Image Editing System</h3>
+            <p>Zichen Liu*, Yue Yu*,  <strong>Hao Ouyang</strong>,, Qiuyu Wang, Ka Leong Cheng, Wen Wang, Zhiheng Liu, Qifeng Chen, Yujun Shen</p>
+            <p>
+              <a href="https://arxiv.org/pdf/2411.09703.pdf">paper</a> | <a href="https://magicquill.art/demo/">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="MagicQuill"
+              href="https://github.com/ant-research/MagicQuill" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/anidoc.gif" alt="Publication 2">
+          <div class="publication-details">
+            <h3>AniDoc: Animation Creation Made Easier</h3>
+            <p>Yihao Meng, <strong>Hao Ouyang</strong>, Hanlin Wang, Qiuyu Wang, Wen Wang, Ka Leong Cheng, Zhiheng Liu, Yujun Shen, Huamin Qu</p>
+            <p>
+              <a href="https://arxiv.org/abs/2412.14173">paper</a> | <a href="https://github.com/ant-research/AniDoc">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="AniDoc"
+              href="https://github.com/ant-research/AniDoc" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/levitor.gif" alt="Publication 4">
+          <div class="publication-details">
+            <h3> LeviTor: 3D Trajectory Oriented Image-to-Video Synthesis </h3>
+            <p> Hanlin Wang, <strong> Hao Ouyang </strong>, Qiuyu Wang, Wen Wang, Ka Leong Cheng, Qifeng Chen, Yujun Shen, Limin Wang</p>
+            <p>
+              <a href="https://arxiv.org/pdf/2412.15214">paper</a> | <a href="https://ppetrichor.github.io/levitor.github.io/">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="LeviTor"
+              href="https://github.com/ant-research/LeviTor" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/framer.gif" alt="Publication 5">
+          <div class="publication-details">
+            <h3> Framer: Interactive frame interpolation </h3>
+            <p> Wen Wang, Qiuyu Wang, Kecheng Zheng,  <strong> Hao Ouyang </strong>, Zhekai Chen, Biao Gong, Hao Chen, Yujun Shen, Chunhua Shen</p>
+            <p>
+              <a href="https://arxiv.org/abs/2410.18978">paper</a> | <a href="https://aim-uofa.github.io/Framer/">project</a> |  <a class="github-link" 
+              data-owner="aim-uofa" 
+              data-repo="Framer"
+              href="https://github.com/aim-uofa/Framer" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/edicho.png" alt="Publication 11">
+          <div class="publication-details">
+            <h3> Edicho: Consistent Image Editing in the Wild </h3>
+            <p> Qingyan Bai,  <strong> Hao Ouyang </strong>, Yinghao Xu, Qiuyu Wang, Ceyuan Yang, Ka Leong Cheng, Yujun Shen, Qifeng Chen</p>
+            <p>
+              <a href="https://arxiv.org/abs/2412.21079">paper</a> | <a href="https://ant-research.github.io/edicho/">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="Edicho"
+              href="https://github.com/ant-research/edicho" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/depthlab.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3> DepthLab: From Partial to Complete </h3>
+            <p> Zhiheng Liu, Ka Leong Cheng, Qiuyu Wang, Shuzhe Wang,  <strong> Hao Ouyang </strong>, Bin Tan, Kai Zhu, Yujun Shen, Qifeng Chen, Ping Luo</p>
+            <p>
+              <a href="https://arxiv.org/abs/2412.18153">paper</a> | <a href="https://johanan528.github.io/depthlab_web/">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="DepthLab"
+              href="https://github.com/ant-research/DepthLab" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/manga.gif" alt="Publication 9">
+          <div class="publication-details">
+            <h3> MangaNinja: Line Art Colorization with Precise Reference Following </h3>
+            <p>  Zhiheng Liu, Ka Leong Cheng, Xi Chen, Jie Xiao, <strong> Hao Ouyang </strong>, Kai Zhu, Yu Liu, Yujun Shen, Qifeng Chen, Ping Luo</p>
+            <p>
+              <a href="https://arxiv.org/abs/2501.08332">paper</a> | <a href="https://johanan528.github.io/MangaNinjia/">project</a> |  <a class="github-link" 
+              data-owner="ali-vilab" 
+              data-repo="MangaNinjia"
+              href="https://github.com/ali-vilab/MangaNinjia" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/codef.gif" alt="Publication 3">
+          <div class="publication-details">
+            <h3> CoDeF: Content Deformation Fields for Temporally Consistent Video Processing </h3>
+            <p> <strong> Hao Ouyang*  </strong>, Qiuyu Wang*, Yuxi Xiao*, Qingyan Bai, Juntao Zhang, Kecheng Zheng, Xiaowei Zhou, Qifeng Chen, Yujun Shen</p>
+            <p>
+              <a href="https://arxiv.org/abs/2308.07926">paper</a> | <a href="https://github.com/ant-research/CoDeF">project</a> |  <a class="github-link" 
+              data-owner="ant-research" 
+              data-repo="CoDeF"
+              href="https://github.com/ant-research/CoDeF" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
 
-        <heading>Publications</heading>
-        <p> (* indicates joint first authors) </p>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-         <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/CoDef.png' width="160"></div>
-                <img src='images/CoDef.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle> CoDeF: Content Deformation Fields for Temporally Consistent Video Processing </papertitle>
-              </a>
-              <br>
-               <strong> Hao Ouyang*  </strong>, Qiuyu Wang*, Yuxi Xiao*, Qingyan Bai, Juntao Zhang, Kecheng Zheng, Xiaowei Zhou, Qifeng Chen, Yujun Shen
-              <br>
-              <em>CVPR 2024 </em> 
-              <br>
-              <a href="https://arxiv.org/abs/2308.07926">arxiv</a> / 
-              <a href="https://qiuyu96.github.io/CoDeF/">project website</a> / 
-              <a href="https://github.com/ant-research/CoDeF">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ant-research/CoDeF?style=social">
-              <p></p>
-            </td>
-           </tr>
+        <div class="publication-item">
+          <img src="images_new/infusion.gif" alt="Publication 10">
+          <div class="publication-details">
+            <h3>  InFusion: Inpainting 3D Gaussians via Learning Depth Completion from Diffusion Prior  </h3>
+            <p> Zhiheng Liu*, <strong>Hao Ouyang*</strong>, Qiuyu Wang, Ka Leong Cheng, Jie Xiao, Kai Zhu, Nan Xue, Yu Liu, Yujun Shen, Yang Cao</p>
+            <p>
+              <a href="https://arxiv.org/abs/2404.11613">paper</a> | <a href="https://johanan528.github.io/Infusion/">project</a> |  <a class="github-link" 
+              data-owner="ali-vilab" 
+              data-repo="infusion"
+              href="https://github.com/ali-vilab/infusion?tab=readme-ov-file" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
 
-           <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/infusion.png' width="160"></div>
-                <img src='images/infusion.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
+        
 
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle> InFusion: Inpainting 3D Gaussians via Learning Depth Completion from Diffusion Prior </papertitle>
-              </a>
-              <br>
-              Zhiheng Liu*, <strong>Hao Ouyang*</strong>, Qiuyu Wang, Ka Leong Cheng, Jie Xiao, Kai Zhu, Nan Xue, Yu Liu, Yujun Shen, Yang Cao
-              <br>
-              <em>preprint, 2024 </em> 
-              <br>
-              <a href="https://arxiv.org/abs/2404.11613">arxiv</a> / 
-              <a href="https://johanan528.github.io/Infusion/">project website</a> / 
-              <a href="https://github.com/ali-vilab/infusion?tab=readme-ov-file">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ali-vilab/Infusion?style=social">
-              <p></p>
-            </td>
-           </tr>
-          
-          
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/lana.png' width="160"></div>
-                <img src='images/lana.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
+        <div class="publication-item">
+          <img src="images_new/dt.gif" alt="Publication 8">
+          <div class="publication-details">
+            <h3>  Dynamic Typography: Bringing Text to Life via Video Diffusion Prior </h3>
+            <p> Zichen Liu, Yihao Meng, Hao Ouyang, Yue Yu, Bolin Zhao, Daniel Cohen-Or, Huamin Qu</p>
+            <p>
+              <a href="https://arxiv.org/abs/2404.11614">paper</a> | <a href="https://animate-your-word.github.io/demo/">project</a> |  <a class="github-link" 
+              data-owner="zliucz" 
+              data-repo="animate-your-word"
+              href="https://github.com/zliucz/animate-your-word" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle> Learning Naturally Aggregated Appearance for Efficient 3D Editing </papertitle>
-              </a>
-              <br>
-                Ka Leong Cheng, Qiuyu Wang, Zifan Shi, Kecheng Zheng, Yinghao Xu, <strong> Hao Ouyang </strong>, Qifeng Chen, Yujun Shen
-              <br>
-              <em> preprint, 2024 </em> 
-              <br>
-              <a href="https://klchengad.student.ust.hk/research/agap/paper.pdf">arxiv</a> / 
-              <a href="https://felixcheng97.github.io/AGAP/">project website</a> / 
-              <a href="https://github.com/felixcheng97/AGAP">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/felixcheng97/AGAP?style=social">
-              <p></p>
-            </td>
-           </tr>
+        <div class="publication-item">
+          <img src="images_new/3d.gif" alt="Publication 8">
+          <div class="publication-details">
+            <h3> High-fidelity 3D GAN Inversion by Pseudo-multi-view Optimization </h3>
+            <p>  Jiaxin Xie*, <strong>Hao Ouyang*</strong>,, Jingtan Piao, Chenyang Lei, Qifeng Chen</p>
+            <p>
+              <a href="https://arxiv.org/abs/2211.15662">paper</a> | <a href="https://ken-ouyang.github.io/HFGI3D/index.html">project</a> |  <a class="github-link" 
+              data-owner="jiaxinxie97" 
+              data-repo="HFGI3D"
+              href="https://github.com/jiaxinxie97/HFGI3D" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+
+        <div class="publication-item">
+          <img src="images_new/RNCR22.png" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Real-Time Neural Character Rendering with Pose-Guided Multiplane Images </h3>
+            <p>  <strong>Hao Ouyang</strong>, Bo Zhang, Pan Zhang, Hao Yang, Jiaolong Yang, Dong Chen, Qifeng Chen, Fang Wen</p>
+            <p>
+              <a href="https://arxiv.org/abs/2204.11820">paper</a> | <a href="https://ken-ouyang.github.io/cmpi/index.html">project</a> |  <a class="github-link" 
+              data-owner="ken-ouyang" 
+              data-repo="PGMPI"
+              href="https://github.com/ken-ouyang/PGMPI" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
 
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/t2immersion.png' width="160"></div>
-                <img src='images/t2immersion.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-              <papertitle> Text2Immersion: Generative Immersive Scene with 3D Gaussians </papertitle>
-              </a>
-              <br>
-               <strong> Hao Ouyang  </strong>,  Stephen Lombardi, Kathryn Heal, Tiancheng Sun 
-              <br>
-              <em> preprint, 2024 </em> 
-              <br>
-              <a href="https://arxiv.org/abs/2312.09242">arxiv</a> / 
-              <a href="https://ken-ouyang.github.io/text2immersion/index.html">project website</a>  
-              <p></p>
-            </td>
-           </tr>
+        <div class="publication-item">
+          <img src="images_new/vi.gif" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Internal Video Inpainting by Implicit Long-range Propagation </h3>
+            <p> <strong>Hao Ouyang*</strong>,  Tengfei Wang*</strong>,  Qifeng Chen </p>
+            <p>
+              <a href="https://arxiv.org/abs/2108.01912">paper</a> | <a href="https://tengfei-wang.github.io/Implicit-Internal-Video-Inpainting/index.html">project</a> |  <a class="github-link" 
+              data-owner="Tengfei-Wang" 
+              data-repo="Implicit-Internal-Video-Inpainting"
+              href="https://github.com/Tengfei-Wang/Implicit-Internal-Video-Inpainting" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
 
-          <tr onmouseout="RNCR_stop()" onmouseover="RNCR_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='RNCR_image'>
-                  <img src='images/HFGI3D.png' width="160"></div>
-                <img src='images/HFGI3D1.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function RNCR_start() {
-                  document.getElementById('RNCR_image').style.opacity = "1";
-                }
+        <div class="publication-item">
+          <img src="images_new/simulator_cvpr21.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3>  Neural Camera Simulators  </h3>
+            <p> <strong> Hao Ouyang * </strong>, Zifan Shi*, Chenyang Lei, Ka Lung Law, Qifeng Chen </p>
+            <p>
+              <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Ouyang_Neural_Camera_Simulators_CVPR_2021_paper.html">paper</a> | <a href="https://github.com/ken-ouyang/neural_image_simulator">project</a> |  <a class="github-link" 
+              data-owner="ken-ouyang" 
+              data-repo="neural_image_simulator"
+              href="https://img.shields.io/github/stars/ken-ouyang/neural_image_simulator" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
-                function RNCR_stop() {
-                  document.getElementById('RNCR_image').style.opacity = "0";
-                }
-                videodepth_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle>High-fidelity 3D GAN Inversion by Pseudo-multi-view Optimization</papertitle>
-              </a>
-              <br>
-                  Jiaxin Xie*, Hao OUYANG*, Jingtan Piao, Chenyang Lei, Qifeng Chen
-              <br>
-                 CVPR 2023   
-              <br>
-              <a href="https://arxiv.org/abs/2211.15662">arxiv</a> / 
-              <a href="https://ken-ouyang.github.io/HFGI3D/index.html">project website</a> / 
-              <a href="https://github.com/jiaxinxie97/HFGI3D">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/jiaxinxie97/HFGI3D?style=social">
-              <p></p>
-              <p> </p>
-            </td>
-          </tr> 
+      </div>
+      
+      <!-- Full Publications (hidden by default) -->
 
-          <tr onmouseout="RNCR_stop()" onmouseover="RNCR_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='RNCR_image'>
-                  <img src='images/piti01.png' width="160"></div>
-                <img src='images/piti02.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function RNCR_start() {
-                  document.getElementById('RNCR_image').style.opacity = "1";
-                }
+      <div id="fullPapers" class="paper-list" style="display: none;">
+        <div class="publication-item">
+          <img src="images_new/3dpe.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3>  Real-time 3d-aware portrait editing from a single image</h3>
+            <p> Qingyan Bai, Zifan Shi, Yinghao Xu, Hao Ouyang, Qiuyu Wang, Ceyuan Yang, Xuan Wang, Gordon Wetzstein, Yujun Shen, Qifeng Chen</p>
+            <p>
+              <a href="https://link.springer.com/chapter/10.1007/978-3-031-72983-6_20">paper</a>  
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/agap.gif" alt="Publication 8">
+          <div class="publication-details">
+            <h3>  Learning Naturally Aggregated Appearance for Efficient 3D Editing  </h3>
+            <p> Ka Leong Cheng, Qiuyu Wang, Zifan Shi, Kecheng Zheng, Yinghao Xu, <strong> Hao Ouyang </strong>, Qifeng Chen, Yujun Shen </p>
+            <p>
+              <a href="https://klchengad.student.ust.hk/research/agap/paper.pdf">paper</a> | <a href="https://felixcheng97.github.io/AGAP/">project</a> |  <a class="github-link" 
+              data-owner="felixcheng97" 
+              data-repo="AGAP"
+              href="https://github.com/felixcheng97/AGAP" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/t2immersion.png" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Text2Immersion: Generative Immersive Scene with 3D Gaussians </h3>
+            <p> <strong> Hao Ouyang  </strong>,  Stephen Lombardi, Kathryn Heal, Tiancheng Sun  </p>
+            <p>
+              <a href="https://arxiv.org/abs/2312.09242">paper</a> | <a href="https://ken-ouyang.github.io/text2immersion/index.html">project</a> 
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/piti.png" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Pretraining is All You Need for Image-to-Image Translation </h3>
+            <p> Tengfei Wang, Ting Zhang, Bo Zhang, <strong> Hao Ouyang  </strong>, Dong Chen, Qifeng Chen, Fang Wen </p>
+            <p>
+              <a href="https://arxiv.org/abs/2205.12952">paper</a> | <a href="https://tengfei-wang.github.io/PITI/index.html">project</a> |  <a class="github-link" 
+              data-owner="PITI-Synthesis" 
+              data-repo="PITI"
+              href="https://github.com/PITI-Synthesis/PITI" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
 
-                function RNCR_stop() {
-                  document.getElementById('RNCR_image').style.opacity = "0";
-                }
-                videodepth_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle>Pretraining is All You Need for Image-to-Image Translation</papertitle>
-              </a>
-              <br>
-                  Tengfei Wang, Ting Zhang, Bo Zhang, Hao Ouyang, Dong Chen, Qifeng Chen, Fang Wen
-              <br>
-                 Arxiv   
-              <br>
-              <a href="https://arxiv.org/abs/2205.12952">arxiv</a> / 
-              <a href="https://tengfei-wang.github.io/PITI/index.html">project website</a> / 
-              <a href="https://github.com/PITI-Synthesis/PITI">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/PITI-Synthesis/PITI?style=social">
-              <p></p>
-              <p> </p>
-            </td>
-          </tr> 
+        <div class="publication-item">
+          <img src="images_new/rio22.png" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Restorable Image Operators with Quasi-Invertible Networks </h3>
+            <p>  <strong>Hao Ouyang*</strong>, Tengfei WANG*, Qifeng Chen </p>
+            <p>
+              <a href="https://www.aaai.org/AAAI22Papers/AAAI-2467.OuyangHao.pdf">paper</a>   
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/dvp21.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Deep Video Prior for Video Consistency and Propagation </h3>
+            <p>  Chenyang Lei, Yazhou Xing, <strong>Hao Ouyang</strong>,  Qifeng Chen </p>
+            <p>
+              <a href="https://arxiv.org/abs/2201.11632">paper</a> | <a href="https://github.com/ChenyangLEI/deep-video-prior">project</a> |  <a class="github-link" 
+              data-owner="ChenyangLEI" 
+              data-repo="deep-video-prior"
+              href="https://github.com/ChenyangLEI/deep-video-prior" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/inpainting_cvpr21.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3>  Image Inpainting with External-internal Learning and Monochromic Bottleneck  </h3>
+            <p> Tengfei Wang *, <strong> Hao Ouyang * </strong>, Qifeng Chen </p>
+            <p>
+              <a href="https://arxiv.org/abs/2104.09068">paper</a> | <a href="https://github.com/Tengfei-Wang/external-internal-inpainting">project</a> |  <a class="github-link" 
+              data-owner="Tengfei-Wang" 
+              data-repo="external-internal-inpainting"
+              href="https://github.com/Tengfei-Wang/external-internal-inpainting" target="_blank">
+             code (<span class="star-count">0</span> <span class="star">★</span>) </a>
+            </p>
+          </div>
+        </div>
+        <div class="publication-item">
+          <img src="images_new/hiding_iccv19.jpg" alt="Publication 8">
+          <div class="publication-details">
+            <h3> Hiding Video in Audio via Reversible Generative Models  </h3>
+            <p> Hyukyrul Yang*, <strong> Hao Ouyang * </strong>, Vladlen Koltun, and Qifeng Chen</p>
+            <p>
+              <a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Yang_Hiding_Video_in_Audio_via_Reversible_Generative_Models_ICCV_2019_paper.html">paper</a> 
+            </p>
+          </div>
+        </div>
+      
+        <div class="publication-item">
+          <img src="images_new/pose.jpg" alt="Publication 22">
+          <div class="publication-details">
+            <h3> Human pose estimation with spatial contextual information </h3>
+            <p> Hong Zhang, <strong> Hao Ouyang   </strong>, Shu Liu, Xiaojuan Qi, Xiaoyong Shen, Ruigang Yang, Jiaya Jia</p>
+            <p>
+              <a href="https://arxiv.org/abs/1901.01760">paper</a>  
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Affiliations Section -->
+    <section class="affiliations">
+      <h2>Affiliations</h2>
+      <div class="affiliations-logos">
+        <img src="images_new/logo1.png" alt="Institution 1">
+        <img src="images_new/logo2.png" alt="Institution 2">
+        <img src="images_new/logo3.webp" alt="Institution 3">
+        <img src="images_new/logo4.png" alt="Institution 4">
+        <img src="images_new/logo6.png" alt="Institution 1">
+        <img src="images_new/logo5.png" alt="Institution 2">
+        <img src="images_new/logo7.png" alt="Institution 3">
+        <img src="images_new/logo8.png" alt="Institution 4">
+      </div>
+    </section>
+  </div>
+  
+  <script>
+    // Toggle between Selected and Full publication lists
 
-          <tr onmouseout="RNCR_stop()" onmouseover="RNCR_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='RNCR_image'>
-                  <img src='images/RNCR22.png' width="160"></div>
-                <img src='images/RNCR22.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function RNCR_start() {
-                  document.getElementById('RNCR_image').style.opacity = "1";
-                }
+    const githubLinks = document.querySelectorAll('.github-link');
+    githubLinks.forEach(link => {
+      const owner = link.getAttribute('data-owner');
+      const repo = link.getAttribute('data-repo');
+      const apiUrl = `https://api.github.com/repos/${owner}/${repo}`;
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          // 更新当前链接中的 star 数量
+          const starElem = link.querySelector('.star-count');
+          if (starElem && typeof data.stargazers_count !== 'undefined') {
+            starElem.textContent = data.stargazers_count;
+          }
+        })
+        .catch(error => {
+          console.error(`Error fetching GitHub data for ${owner}/${repo}:`, error);
+        });
+    });
 
-                function RNCR_stop() {
-                  document.getElementById('RNCR_image').style.opacity = "0";
-                }
-                videodepth_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle>Real-Time Neural Character Rendering with Pose-Guided Multiplane Images</papertitle>
-              </a>
-              <br>
-                 <strong>Hao Ouyang</strong>, Bo Zhang, Pan Zhang, Hao Yang, Jiaolong Yang, Dong Chen, Qifeng Chen, Fang Wen
-              <br>
-                ECCV 2022  
-              <br>
-              <a href="https://arxiv.org/abs/2204.11820">arxiv</a> / 
-              <a href="https://ken-ouyang.github.io/cmpi/index.html">project website</a> / 
-              <a href="https://www.youtube.com/watch?v=otL3UAak7wQ">video</a> / 
-              <a href="https://github.com/ken-ouyang/PGMPI">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ken-ouyang/PGMPI?style=social">
-              <p></p>
-              <p> </p>
-            </td>
-          </tr> 
+    document.getElementById('btnSelected').addEventListener('click', function() {
+      document.getElementById('selectedPapers').style.display = 'block';
+      document.getElementById('fullPapers').style.display = 'none';
+      this.classList.add('active');
+      document.getElementById('btnFull').classList.remove('active');
+    });
+    
+    document.getElementById('btnFull').addEventListener('click', function() {
+      document.getElementById('fullPapers').style.display = 'block';
+      document.getElementById('selectedPapers').style.display = 'none';
+      this.classList.add('active');
+      document.getElementById('btnSelected').classList.remove('active');
+    });
 
-          <tr onmouseout="RIO_stop()" onmouseover="RIO_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='RIO_image'>
-                  <img src='images/rio22.png' width="160"></div>
-                <img src='images/rio22.png' width="160">
-              </div>
-              <script type="text/javascript">
-                function RIO_start() {
-                  document.getElementById('RIO_image').style.opacity = "1";
-                }
-
-                function RIO_stop() {
-                  document.getElementById('RIO_image').style.opacity = "0";
-                }
-                videodepth_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle>Restorable Image Operators with Quasi-Invertible Networks</papertitle>
-              </a>
-              <br>
-                 <strong>Hao Ouyang*</strong>, Tengfei WANG*, Qifeng Chen 
-              <br>
-                <em>AAAI </em>, 2022  
-              <br>
-              <a href="https://www.aaai.org/AAAI22Papers/AAAI-2467.OuyangHao.pdf">arxiv</a> / 
-              <a href="https://tengfei-wang.github.io/Restorable-Image-Operator">project website</a> / 
-              <a href="https://www.youtube.com/watch?v=iB7k7jDa9Kg">video</a> / 
-              <a href="https://github.com/ken-ouyang/IVOP">code</a>  <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ken-ouyang/IVOP?style=social">
-              <p></p>
-              <p> </p>
-            </td>
-          </tr>  
-          
-          
-          <tr onmouseout="DVPvp_stop()" onmouseover="DVPvp_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='DVPvp_image'>
-                  <img src='images/dvp21.jpg' width="160"></div>
-                <img src='images/dvp21.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function DVPvp_start() {
-                  document.getElementById('DVPvp_image').style.opacity = "1";
-                }
-
-                function DVPvp_stop() {
-                  document.getElementById('DVPvp_image').style.opacity = "0";
-                }
-                videodepth_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle>Deep Video Prior for Video Consistency and Propagation</papertitle>
-              </a>
-              <br>
-              Chenyang Lei, Yazhou Xing, <strong>Hao Ouyang</strong>,  Qifeng Chen 
-              <br>
-              <em> TPAMI  
-              <br>
-              <a href="https://arxiv.org/abs/2201.11632">arxiv</a> / 
-              <a href="https://github.com/ChenyangLEI/deep-video-prior">code</a>  <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ChenyangLEI/deep-video-prior?style=social">  
-              <p></p>
-              <p> </p>
-            </td>
-          </tr>  
-          
-          
-          
-           <tr onmouseout="inpainting_iccv21_stop()" onmouseover="inpainting_iccv21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_iccv21_image'>
-                  <img src='images/inpainting_iccv21.jpg' width="160"></div>
-                <img src='images/inpainting_iccv21.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_iccv21_start() {
-                  document.getElementById('inpainting_iccv21_image').style.opacity = "1";
-                }
-
-                function inpainting_iccv21_stop() {
-                  document.getElementById('inpainting_iccv21_image').style.opacity = "0";
-                }
-                inpainting_iccv21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle> Internal Video Inpainting by Implicit Long-range Propagation </papertitle>
-              </a>
-              <br>
-               <strong>Hao Ouyang*</strong>,  Tengfei Wang*</strong>,  Qifeng Chen 
-              <br>
-              <em>ICCV </em>, 2021  
-              <br>
-              <a href="https://arxiv.org/ ">arxiv</a> / 
-              <a href="https://github.com/Tengfei-Wang/Implicit-Internal-Video-Inpainting">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/Tengfei-Wang/Implicit-Internal-Video-Inpainting?style=social"> / 
-              <a href="https://tengfei-wang.github.io/Implicit-Internal-Video-Inpainting/index.html">project website</a> /
-              <a href="https://github.com/Tengfei-Wang/Annotated-4K-Videos">dataset</a> /  
-              <p></p>
-              <p style="color:red">    </p>
-            </td>
-          </tr>           
-          
-          
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/simulator_cvpr21.jpg' width="160"></div>
-                <img src='images/simulator_cvpr21.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle> Neural Camera Simulators </papertitle>
-              </a>
-              <br>
-              <strong> Hao Ouyang * </strong>, Zifan Shi*, Chenyang Lei, Ka Lung Law, Qifeng Chen 
-              <br>
-              <em>CVPR </em>, 2021  
-              <br>
-              <a href="https://openaccess.thecvf.com/content/CVPR2021/html/Ouyang_Neural_Camera_Simulators_CVPR_2021_paper.html">arxiv</a> / 
-              <a href="https://github.com/ken-ouyang/neural_image_simulator">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/ken-ouyang/neural_image_simulator?style=social"> / 
-              <a href="https://github.com/ken-ouyang/neural_image_simulator ">dataset</a> 
-              <p></p>
-             
-            </td>
-          </tr>            
-          
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/inpainting_cvpr21.jpg' width="160"></div>
-                <img src='images/inpainting_cvpr21.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle> Image Inpainting with External-internal Learning and Monochromic Bottleneck  </papertitle>
-              </a>
-              <br>
-              Tengfei Wang *, <strong> Hao Ouyang * </strong>, Qifeng Chen 
-              <br>
-              <em>CVPR </em>, 2021  
-              <br>
-              <a href="https://arxiv.org/abs/2104.09068">arxiv</a> / 
-              <a href="https://github.com/Tengfei-Wang/external-internal-inpainting">code</a> <img alt="GitHub stars" style="vertical-align:middle" src="https://img.shields.io/github/stars/Tengfei-Wang/external-internal-inpainting?style=social">/ 
-              <a href="https://tengfei-wang.github.io/EII/index.html">project website</a> 
-              <p></p>
-              <p style="color:red">    </p>
-            </td>
-          </tr>  
-
-
-
-
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/hiding_iccv19.jpg' width="160"></div>
-                <img src='images/hiding_iccv19.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle> Hiding Video in Audio via Reversible Generative Models </papertitle>
-              </a>
-              <br>
-              Hyukyrul Yang*, <strong> Hao Ouyang * </strong>, Vladlen Koltun, and Qifeng Chen
-              <br>
-              <em>ICCV </em>, 2019  
-              <br>
-              <a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Yang_Hiding_Video_in_Audio_via_Reversible_Generative_Models_ICCV_2019_paper.html">arxiv</a> / 
-              <p></p>
-             
-            </td>
-          </tr>   
-
-
-          <tr onmouseout="inpainting_cvpr21_stop()" onmouseover="inpainting_cvpr21_start()">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='inpainting_cvpr21_image'>
-                  <img src='images/pose19.jpg' width="160"></div>
-                <img src='images/pose19.jpg' width="160">
-              </div>
-              <script type="text/javascript">
-                function inpainting_cvpr21_start() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "1";
-                }
-
-                function inpainting_cvpr21_stop() {
-                  document.getElementById('inpainting_cvpr21_image').style.opacity = "0";
-                }
-                inpainting_cvpr21_stop()
-              </script>
-            </td>
-            
-            <td style="padding:20px;width:75%;vertical-align:middle">
-                <papertitle> Human pose estimation with spatial contextual information </papertitle>
-              </a>
-              <br>
-              Hong Zhang, <strong> Hao Ouyang   </strong>, Shu Liu, Xiaojuan Qi, Xiaoyong Shen, Ruigang Yang, Jiaya Jia
-              <br>
-              <em>preprint </em>, 2019  
-              <br>
-              <a href="https://arxiv.org/abs/1901.01760">arxiv</a> / 
-              <p></p>
-             
-            </td>
-          </tr>   
-        </tbody></table>
-
-         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading>Teaching</heading>
-                <ul>
-                  <li> Teaching assistant in Advanced Deep Learning Architectures (COMP 5214), 2021 Spring term </li>
-                  <li> Teaching assistant in Exploring Multimedia and Internet Computing (COMP 1001), 2019 Fall
-term </li>
-                  <li> Teaching assistant in Deep Learning for Computer Vision (COMP 4901J), 2018 Fall term </li>
-                </ul>
-           </td>
-          </tr>
-        </tbody></table>
-
-<!--          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading>Services</heading>
-                <ul>
-                  <li> </li>
-           
-                </ul>
-           </td>
-          </tr>
-        </tbody></table> -->
-                                                                                       
-
-                                                                                 
-                                                                                       
-         <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading>Selected Awards      </heading>
-                <ul>
-                  <li>  CUHK Dean’s List (2013 - 2017)  </li>
-                  <li> HKUST Graduate Research Scholarship  </li>
-                  <li>  Elite Students Scholarship (2015 - 2017) </li>
-                  <li> China Undergraduate Mathematical Competition of Modeling First Prize </li>
- 
-                </ul>
-           </td>
-          </tr>
-        </tbody></table>                                                                                       
-                                                                                       
-                                                                                       
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">The source code is borrowed from <a href="https://jonbarron.info/"> Dr. Jon Barron</a>.</p>
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+  </script>
 </body>
-
- 
- 
-
 </html>
-© 2021 GitHub, Inc.
